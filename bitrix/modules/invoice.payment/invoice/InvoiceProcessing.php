@@ -80,11 +80,14 @@ class InvoiceProcessing
 
         $terminal = $this->client->CreateTerminal($create_terminal);
         if($terminal == null or $terminal->error != null) {
-            throw new Exception("Ошибка при создании терминала");
-        } else {
-            $this->terminal_id = $terminal->id;
-            $this->setOptionParameter("invoice_terminal", $terminal->id);
+            $terminal = $this->client->CreateTerminal($create_terminal);
+            if($terminal == null or $terminal->error != null) {
+                throw new Exception("Ошибка при создании терминала");
+                return;
+            }
         }
+        $this->terminal_id = $terminal->id;
+        $this->setOptionParameter("invoice_terminal", $terminal->id);
     }
 
     /**

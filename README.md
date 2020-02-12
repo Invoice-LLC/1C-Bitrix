@@ -11,3 +11,6 @@
 ![Imgur](https://imgur.com/OBpBvWF.png)
 5. Выберите обработчик **"Invoice"**, затем сохраните настройки
 ![Imgur](https://imgur.com/7TwBlnc.png)
+6. Добавьте уведомление в личном кабинете Invoice(Вкладка Настройки->Уведомления->Добавить)
+с типом **WebHook** и адресом: **%URL сайта%/invoice_callback/callback.php**
+![Imgur](https://imgur.com/LZEozhf.png)

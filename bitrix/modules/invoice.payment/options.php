@@ -20,7 +20,7 @@ if(isset($_POST["invoice_settings_submit"]) && check_bitrix_sessid())
         <tr>
             <td>Логин от личного кабинета Invoice</td>
             <td width="25%" style="vertical-align: middle;">
-                <input width="100%" type="text" name="invoice_login" placeholder="Логин от личного кабинета Invoice" value="<?= COption::GetOptionString("invoice.payment", "invoice_login", "");?>">
+                <input width="100%" type="text" name="invoice_login" placeholder="79991234567" value="<?= COption::GetOptionString("invoice.payment", "invoice_login", "");?>">
             </td>
         </tr>
         <tr>

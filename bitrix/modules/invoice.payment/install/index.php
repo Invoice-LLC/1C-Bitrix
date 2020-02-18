@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\ModuleManager;
 use Bitrix\Main\Config\Option;

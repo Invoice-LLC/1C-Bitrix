@@ -12,14 +12,14 @@ if(isset($_POST["invoice_submit"])) {
     try {
         $link = $processing->createPayment($id);
         header("Location: ".$link);
-        echo "Ð ÐµÐ´Ð¸Ñ€ÐµÐºÑ‚...";
+        echo "Ðåäèðåêò...";
     } catch (Exception $ex) {
-        echo "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ð¸ Ð¿Ð»Ð°Ñ‚ÐµÐ¶Ð°, Ð¾Ð±Ñ€Ð°Ñ‚Ð¸Ñ‚ÐµÑÑŒ Ðº Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ñƒ";
+        echo "Îøèáêà ïðè ñîçäàíèè ïëàòåæà, îáðàòèòåñü ê àäìèíèñòðàòîðó";
     }
 } else {
     ?>
     <form method="post" target="_blank" action="/personal/order/payment/?ORDER_ID=<?=$id?>&PAYMENT_ID=<?=$id?>/1" accept-charset="utf-8">
-        <input type="submit" name="invoice_submit" class="btn btn-default" value="ÐžÐ¿Ð»Ð°Ñ‚Ð¸Ñ‚ÑŒ">
+        <input type="submit" name="invoice_submit" class="btn btn-default" value="Îïëàòèòü">
     </form>
     <?php
 }

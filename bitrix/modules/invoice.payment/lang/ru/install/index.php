@@ -1,10 +1,10 @@
 <?php
 global $MESS;
 
-$MESS["INVOICE_PAYMENT_NAME"]           = "ÐŸÐ»Ð°Ñ‚ÐµÐ¶Ð½Ð°Ñ ÑÐ¸ÑÑ‚ÐµÐ¼Ð° Invoice";
-$MESS["INVOICE_PAYMENT_DESCRIPTION"]  = "ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¸Ð½Ñ‚ÐµÐ³Ñ€Ð°Ñ†Ð¸Ð¸ Ð¿Ð»Ð°Ñ‚ÐµÐ¶Ð½Ð¾Ð¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹ Invoice";
+$MESS["INVOICE_PAYMENT_NAME"]           = "Ïëàòåæíàÿ ñèñòåìà Invoice";
+$MESS["INVOICE_PAYMENT_DESCRIPTION"]  = "Ìîäóëü èíòåãðàöèè ïëàòåæíîé ñèñòåìû Invoice";
 $MESS["INVOICE_PAYMENT_PARTNER_NAME"] = "Invoice LLC";
 $MESS["INVOICE_PAYMENT_PARTNER_URI"]  = "https://invoice.su/";
-$MESS["INVOICE_PAYMENT_INSTALL_ERROR_VERSION"] = "Ð’ÐµÑ€ÑÐ¸Ñ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð½Ð¸Ð¶Ðµ 14. ÐÐµ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ñ‚ÐµÑ…Ð½Ð¾Ð»Ð¾Ð³Ð¸Ñ D7, Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð°Ñ Ð¼Ð¾Ð´ÑƒÐ»ÑŽ. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð° Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ.";
-$MESS["INVOICE_PAYMENT_INSTALL_TITLE"]        = "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° Ð¼Ð¾Ð´ÑƒÐ»Ñ Invoice";
-$MESS["INVOICE_PAYMENT_UNINSTALL_TITLE"] = "Ð”ÐµÐ¸Ð½ÑÑ‚Ð°Ð»Ð»ÑÑ†Ð¸Ñ Invoice";
+$MESS["INVOICE_PAYMENT_INSTALL_ERROR_VERSION"] = "Âåðñèÿ ãëàâíîãî ìîäóëÿ íèæå 14. Íå ïîääåðæèâàåòñÿ òåõíîëîãèÿ D7, íåîáõîäèìàÿ ìîäóëþ. Ïîæàëóéñòà îáíîâèòå ñèñòåìó.";
+$MESS["INVOICE_PAYMENT_INSTALL_TITLE"]        = "Óñòàíîâêà ìîäóëÿ Invoice";
+$MESS["INVOICE_PAYMENT_UNINSTALL_TITLE"] = "Äåèíñòàëëÿöèÿ Invoice";

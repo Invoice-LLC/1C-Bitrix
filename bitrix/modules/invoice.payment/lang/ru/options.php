@@ -1,6 +1,6 @@
 <?php
 global $MESS;
 
-$MESS['invoice_api_key'] = 'API ÐºÐ»ÑŽÑ‡';
-$MESS['invoice_login'] = 'Ð›Ð¾Ð³Ð¸Ð½';
+$MESS['invoice_api_key'] = 'API êëþ÷';
+$MESS['invoice_login'] = 'Ëîãèí';
 $MESS['invoice_terminal'] = '';

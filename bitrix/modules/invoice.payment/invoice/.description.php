@@ -3,7 +3,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 include(GetLangFileName(dirname(__FILE__)."/", "/payment.php"));
 
 $psTitle = "Invoice";
-$psDescription = "ĞŸĞ»Ğ°Ñ‚ĞµĞ¶Ğ½Ğ°Ñ ÑĞ¸ÑÑ‚ĞµĞ¼Ğ°";
+$psDescription = "Ïëàòåæíàÿ ñèñòåìà";
 $arPSCorrespondence = array(
     "OrderID" => array(
         "NAME" => GetMessage("OrderID"),

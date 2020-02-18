@@ -43,7 +43,7 @@ class InvoiceProcessing
         $this->login = COption::GetOptionString('invoice.payment', 'invoice_login', '');
 
         if($this->login == null or $this->key == null) {
-            throw new Exception("ĞÑˆĞ¸Ğ±ĞºĞ° Invoice, Ğ¿Ğ¾Ğ¿Ñ€Ğ¾Ğ±ÑƒĞ¹Ñ‚Ğµ Ğ¸Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ¸");
+            throw new Exception("Îøèáêà Invoice, ïîïğîáóéòå èçìåíèòü íàñòğîéêè");
             return;
         } else {
             $this->client = new RestClient($this->login, $this->key);
@@ -82,7 +82,7 @@ class InvoiceProcessing
         if($terminal == null or $terminal->error != null) {
             $terminal = $this->client->CreateTerminal($create_terminal);
             if($terminal == null or $terminal->error != null) {
-                throw new Exception("ĞÑˆĞ¸Ğ±ĞºĞ° Ğ¿Ñ€Ğ¸ ÑĞ¾Ğ·Ğ´Ğ°Ğ½Ğ¸Ğ¸ Ñ‚ĞµÑ€Ğ¼Ğ¸Ğ½Ğ°Ğ»Ğ°");
+                throw new Exception("Îøèáêà ïğè ñîçäàíèè òåğìèíàëà");
                 return;
             }
         }
@@ -138,7 +138,7 @@ class InvoiceProcessing
 
         $payment = $this->client->CreatePayment($create_payment);
         if($payment == null or $payment->error != null) {
-            throw new Exception("ĞÑˆĞ¸Ğ±ĞºĞ° Ğ¿Ñ€Ğ¸ ÑĞ¾Ğ·Ğ´Ğ°Ğ½Ğ¸Ğ¸ Ğ·Ğ°ĞºĞ°Ğ·Ğ°");
+            throw new Exception("Îøèáêà ïğè ñîçäàíèè çàêàçà");
         } else {
             $this->addTransactionId($order_id, $payment->id);
             return $payment->payment_url;

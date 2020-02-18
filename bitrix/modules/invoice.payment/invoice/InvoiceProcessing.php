@@ -41,9 +41,10 @@ class InvoiceProcessing
         CModule::IncludeModule('sale');
         $this->key = COption::GetOptionString('invoice.payment', 'invoice_api_key', '');
         $this->login = COption::GetOptionString('invoice.payment', 'invoice_login', '');
+        print_r($this->key.' / '.$this->login);
 
         if($this->login == null or $this->key == null) {
-            throw new Exception("Îøèáêà Invoice, ïîïğîáóéòå èçìåíèòü íàñòğîéêè");
+            throw new Exception("ĞÑˆĞ¸Ğ±ĞºĞ° Invoice, Ğ¿Ğ¾Ğ¿Ñ€Ğ¾Ğ±ÑƒĞ¹Ñ‚Ğµ Ğ¸Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ¸");
             return;
         } else {
             $this->client = new RestClient($this->login, $this->key);
@@ -73,16 +74,17 @@ class InvoiceProcessing
      */
     public function createTerminal($name, $description) {
         $create_terminal = new CREATE_TERMINAL();
-        $create_terminal->description = $description;
-        $create_terminal->name = $name;
+        $create_terminal->description = iconv('windows-1251', 'utf-8', $description);
+        $create_terminal->name = iconv('windows-1251', 'utf-8', $name);
         $create_terminal->type = "dynamical";
         $create_terminal->defaultPrice = 1;
 
         $terminal = $this->client->CreateTerminal($create_terminal);
+
         if($terminal == null or $terminal->error != null) {
             $terminal = $this->client->CreateTerminal($create_terminal);
             if($terminal == null or $terminal->error != null) {
-                throw new Exception("Îøèáêà ïğè ñîçäàíèè òåğìèíàëà");
+                throw new Exception("ĞÑˆĞ¸Ğ±ĞºĞ° Ğ¿Ñ€Ğ¸ ÑĞ¾Ğ·Ğ´Ğ°Ğ½Ğ¸Ğ¸ Ñ‚ĞµÑ€Ğ¼Ğ¸Ğ½Ğ°Ğ»Ğ°");
                 return;
             }
         }
@@ -127,7 +129,7 @@ class InvoiceProcessing
         $basket = $bOrder->getBasket();
         foreach ($basket as $basketItem) {
             $item = new ITEM();
-            $item->name = $basketItem->getField('NAME');
+            $item->name = iconv('windows-1251', 'utf-8', $basketItem->getField('NAME'));
             $item->resultPrice = $basketItem->getFinalPrice();
             $item->quantity = $basketItem->getQuantity();
             $item->price = $basketItem->getPrice();
@@ -138,7 +140,7 @@ class InvoiceProcessing
 
         $payment = $this->client->CreatePayment($create_payment);
         if($payment == null or $payment->error != null) {
-            throw new Exception("Îøèáêà ïğè ñîçäàíèè çàêàçà");
+            throw new Exception("ĞÑˆĞ¸Ğ±ĞºĞ° Ğ¿Ñ€Ğ¸ ÑĞ¾Ğ·Ğ´Ğ°Ğ½Ğ¸Ğ¸ Ğ·Ğ°ĞºĞ°Ğ·Ğ°");
         } else {
             $this->addTransactionId($order_id, $payment->id);
             return $payment->payment_url;

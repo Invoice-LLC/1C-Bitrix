@@ -65,7 +65,7 @@ class RestClient
      */
     public function CreateTerminal(CREATE_TERMINAL $request)
     {
-        $response = $this->Send("CreateTerminal", json_encode(get_object_vars($request)));
+        $response = $this->Send("CreateTerminal", json_encode(get_object_vars($request), JSON_UNESCAPED_UNICODE));
         return json_decode($response);
     }
 

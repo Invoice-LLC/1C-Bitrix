@@ -2,7 +2,11 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 include(GetLangFileName(dirname(__FILE__)."/", "/payment.php"));
 
-$id =  CSalePaySystemAction::GetParamValue("OrderID");
+$id =  $orderNumber = CSalePaySystemAction::GetParamValue("ORDER_ID");
+
+if($id == null) {
+    $id = @$_GET['ORDER_ID'];
+}
 
 include("InvoiceProcessing.php");
 

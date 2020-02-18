@@ -6,10 +6,6 @@ class CREATE_TERMINAL
     /**
      * @var string
      */
-    public $alias;
-    /**
-     * @var string
-     */
     public $name;
     /**
      * @var string

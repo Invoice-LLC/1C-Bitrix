@@ -5,9 +5,9 @@ include(GetLangFileName(dirname(__FILE__)."/", "/payment.php"));
 $psTitle = "Invoice";
 $psDescription = "Платежная система";
 $arPSCorrespondence = array(
-    "OrderID" => array(
-        "NAME" => GetMessage("OrderID"),
-        "DESCR" => GetMessage("OrderID_DESCR"),
+    "ORDER_ID" => array(
+        "NAME" => GetMessage("ORDER_ID"),
+        "DESCR" => GetMessage("ORDER_ID_DESCR"),
         "VALUE" => "ID",
         "TYPE" => "ORDER"
     ),

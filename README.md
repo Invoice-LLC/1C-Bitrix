@@ -1,5 +1,7 @@
 <h1>Invoice 1C-Bitrix Module</h1>
 
+**Кодировка должна быть win-1251**
+
 <h3>Установка</h3>
 
 1. [Скачайте плагин](https://github.com/Invoice-LLC/Invoice.Module.1C-Bitrix/archive/master.zip) и скопируйте содержимое архива в корень сайта

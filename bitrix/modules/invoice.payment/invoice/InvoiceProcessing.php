@@ -41,9 +41,10 @@ class InvoiceProcessing
         CModule::IncludeModule('sale');
         $this->key = COption::GetOptionString('invoice.payment', 'invoice_api_key', '');
         $this->login = COption::GetOptionString('invoice.payment', 'invoice_login', '');
-        print_r($this->key.' / '.$this->login);
 
-        if($this->login == null or $this->key == null) {
+        if($this->login == null or $this->key == null)
+        {
+            $this->log("Login or key is null");
             throw new Exception("Ошибка Invoice, попробуйте изменить настройки");
             return;
         } else {
@@ -106,6 +107,7 @@ class InvoiceProcessing
         $bOrder = \Bitrix\Sale\Order::load($order_id);
 
         if($bOrder == null) {
+            $this->log("Order in null \n");
             throw new Exception("Order not found!");
             return;
         }
@@ -216,8 +218,12 @@ class InvoiceProcessing
     }
 
     private function log($log) {
-        $fp = fopen('invoice_payment.log', 'a+');
-        fwrite($fp, $log);
-        fclose($fp);
+        CEventLog::Add(array(
+            "SEVERITY" => "INFO",
+            "AUDIT_TYPE_ID" => "INVOICE_PAYMENT",
+            "MODULE_ID" => "main",
+            "ITEM_ID" => $_POST["user"],
+            "DESCRIPTION" => $log,
+        ));
     }
 }

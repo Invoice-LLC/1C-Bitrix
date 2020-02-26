@@ -79,15 +79,18 @@ class InvoiceProcessing
         $create_terminal->type = "dynamical";
         $create_terminal->defaultPrice = 1;
 
+        $this->log("Creating new terminal \n");
         $terminal = $this->client->CreateTerminal($create_terminal);
 
         if($terminal == null or $terminal->error != null) {
             $terminal = $this->client->CreateTerminal($create_terminal);
             if($terminal == null or $terminal->error != null) {
+                $this->log("ERROR: ".json_encode($terminal) ."\n");
                 throw new Exception("Ошибка при создании терминала");
                 return;
             }
         }
+        $this->log("Terminal is created \n");
         $this->terminal_id = $terminal->id;
         $this->setOptionParameter("invoice_terminal", $terminal->id);
     }
@@ -140,6 +143,7 @@ class InvoiceProcessing
 
         $payment = $this->client->CreatePayment($create_payment);
         if($payment == null or $payment->error != null) {
+            $this->log("ERROR: ". json_encode($payment) . "\n");
             throw new Exception("Ошибка при создании заказа");
         } else {
             $this->addTransactionId($order_id, $payment->id);
@@ -209,5 +213,11 @@ class InvoiceProcessing
      */
     private function addTransactionId($order_id, $tranId) {
         $this->setOptionParameter("invoice_tran_".$order_id, $tranId);
+    }
+
+    private function log($log) {
+        $fp = fopen('invoice_payment.log', 'a+');
+        fwrite($fp, $log);
+        fclose($fp);
     }
 }

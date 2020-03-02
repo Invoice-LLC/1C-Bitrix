@@ -19,4 +19,7 @@ class CREATE_PAYMENT
      * @var array(ITEM)
      */
     public $receipt;
+
+    public $mail;
+    public $phone;
 }

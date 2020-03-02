@@ -123,6 +123,10 @@ class InvoiceProcessing
         $order->currency = $bOrder->getCurrency();
         $create_payment->order = $order;
 
+        if ($user = CUser::GetByID($bOrder['USER_ID'])->fetch()) {
+            $create_payment->mail = $user['EMAIL'];
+        }
+
         $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
         $settings = new SETTINGS();
         $settings->terminal_id = $this->terminal_id;

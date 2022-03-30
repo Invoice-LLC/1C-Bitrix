@@ -79,6 +79,10 @@ class InvoiceProcessing
         $create_terminal->name = iconv('windows-1251', 'utf-8', $name);
         $create_terminal->type = "dynamical";
         $create_terminal->defaultPrice = 1;
+        
+        if($create_terminal->name == null or empty($create_terminal->name)) {
+            $create_terminal->name = "Invoice Bitrix";   
+        }
 
         $this->log("Creating new terminal \n");
         $terminal = $this->client->CreateTerminal($create_terminal);

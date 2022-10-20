@@ -23,13 +23,13 @@ if (isset($_POST["invoice_settings_submit"]) && check_bitrix_sessid()) {
         <tr>
             <td>Ключ API Invoice</td>
             <td width="25%" style="vertical-align: middle;">
-                <input width="100%" type="text" name="invoice_api_key" placeholder="Ключ API Invoice" value="<?= COption::GetOptionString("invoice.payment", "invoice_api_key", "");?>">
+                <input width="100%" type="text" name="invoice_api_key" placeholder="Ключ API Invoice" value="<?= COption::GetOptionString("invoice.payment.utf8", "invoice_api_key", "");?>">
             </td>
         </tr>
         <tr>
             <td>ID компании Invoice</td>
             <td width="25%" style="vertical-align: middle;">
-                <input width="100%" type="text" name="invoice_login" placeholder="ID компании" value="<?= COption::GetOptionString("invoice.payment", "invoice_login", "");?>">
+                <input width="100%" type="text" name="invoice_login" placeholder="ID компании" value="<?= COption::GetOptionString("invoice.payment.utf8", "invoice_login", "");?>">
             </td>
         </tr>
         <tr>

@@ -49,6 +49,12 @@ class RestClient
         return $response;
     }
 
+    public function AuthCheck()
+    {
+        $response = $this->Send("AuthCheck", "");
+        return json_decode($response);
+    }
+
     /**
      * @param GET_TERMINAL $request
      * @return TerminalInfo

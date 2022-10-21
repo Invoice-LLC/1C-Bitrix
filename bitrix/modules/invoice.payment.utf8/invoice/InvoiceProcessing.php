@@ -202,7 +202,7 @@ class InvoiceProcessing
      * @param $value string
      */
     private function setOptionParameter($key, $value) {
-        COption::SetOptionString('invoice.payment', $key, $value);
+        COption::SetOptionString('invoice.payment.utf8', $key, $value);
     }
 
     /**

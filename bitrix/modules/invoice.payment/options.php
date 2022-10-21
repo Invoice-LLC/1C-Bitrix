@@ -3,9 +3,9 @@
 use Bitrix\Sale;
 if(isset($_POST["invoice_settings_submit"]) && check_bitrix_sessid())
 {
-    COption::SetOptionString('invoice.payment', 'invoice_api_key',
+    COption::SetOptionString('invoice.payment.utf8', 'invoice_api_key',
         $_POST['invoice_api_key']);
-    COption::SetOptionString('invoice.payment', 'invoice_login',
+    COption::SetOptionString('invoice.payment.utf8', 'invoice_login',
         $_POST['invoice_login']);
 }
 ?>

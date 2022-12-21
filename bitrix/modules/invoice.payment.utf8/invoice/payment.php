@@ -10,23 +10,16 @@ if($id == null) {
 
 include("InvoiceProcessing.php");
 
-if(isset($_POST["invoice_submit"])) {
-    $processing = new InvoiceProcessing();
+$processing = new InvoiceProcessing();
 
-    try {
-        $link = $processing->createPayment($id);
-        header("Location: ".$link);
-        echo "Редирект...";
-    } catch (Exception $ex) {
-        echo "Ошибка при создании платежа, обратитесь к администратору";
-    }
-} else {
-    ?>
-    <form method="post" target="_blank" action="/personal/order/payment/?ORDER_ID=<?=$id?>&PAYMENT_ID=<?=$id?>/1" accept-charset="utf-8">
-        <input type="submit" name="invoice_submit" class="btn btn-default" value="Оплатить">
-    </form>
-    <?php
+try {
+    $link = $processing->createPayment($id);
+    echo "<script>window.location.href='".$link."';</script>";
+    echo "Редирект...";
+} catch (Exception $ex) {
+    echo "Ошибка при создании платежа, обратитесь к администратору";
 }
+
 ?>
 
 

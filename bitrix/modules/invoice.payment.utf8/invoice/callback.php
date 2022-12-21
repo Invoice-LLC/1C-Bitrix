@@ -38,7 +38,7 @@ $order_id = null;
 if(!isset($notification["order"]["id"])) {
     die("Order not found");
 } else {
-    $order_id = $notification["order"]["id"];
+    $order_id = strstr($notification["order"]["id"], "-", true);
 }
 
 $processing = new InvoiceProcessing();

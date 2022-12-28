@@ -123,7 +123,7 @@ class InvoiceProcessing
 
         $order = new ORDER();
         $order->amount = $bOrder->getPrice();
-        $order->id = $order_id;
+        $order->id = "$order_id" . "-" . bin2hex(random_bytes(5));
         $order->currency = $bOrder->getCurrency();
         $create_payment->order = $order;
 
